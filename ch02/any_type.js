@@ -160,4 +160,14 @@ function CheckAndPrintElement(arrElement) {
     else
         console.log(`valid array elemrnt ${arrElement}`);
 }
+/**
+ *  null
+ * setting variable to null is intended to indicate that the variable is known but has no value
+ * as opposed to undefined
+ * **/
+function printValues(a) {
+    console.log(`a = ${a}`);
+}
+printValues(1);
+printValues(null);
 //# sourceMappingURL=any_type.js.map

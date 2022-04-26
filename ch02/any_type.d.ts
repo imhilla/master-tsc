@@ -98,3 +98,9 @@ declare const enum DoorStateConst {
  * **/
 declare let array: string[];
 declare function CheckAndPrintElement(arrElement: string | undefined): void;
+/**
+ *  null
+ * setting variable to null is intended to indicate that the variable is known but has no value
+ * as opposed to undefined
+ * **/
+declare function printValues(a: number | null): void;
