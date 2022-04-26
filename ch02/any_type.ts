@@ -202,3 +202,27 @@ function printValues(a: number | null) {
 
 printValues(1);
 printValues(null);
+
+/**
+ *  conditional expressions
+ * format (conditional)? (true statement):(false statement)
+ * **/
+
+/**
+ *  Optional chaining
+ * When using object properties in javascript , and in particular nested properties
+ * it is important to ensure that a nested property exists before attepting to access it.
+ * **/
+
+/**
+ *Nullish coalescing
+ * handy shorthand that will provide a
+ * default value if a variable is either null or undefined
+ *
+ * */
+function nullishCheck(a: number | undefined | null) {
+  console.log(`a: ${a ?? `undefined or null`}`);
+}
+nullishCheck(1);
+nullishCheck(null);
+nullishCheck(undefined);

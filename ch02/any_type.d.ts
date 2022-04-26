@@ -104,3 +104,19 @@ declare function CheckAndPrintElement(arrElement: string | undefined): void;
  * as opposed to undefined
  * **/
 declare function printValues(a: number | null): void;
+/**
+ *  conditional expressions
+ * format (conditional)? (true statement):(false statement)
+ * **/
+/**
+ *  Optional chaining
+ * When using object properties in javascript , and in particular nested properties
+ * it is important to ensure that a nested property exists before attepting to access it.
+ * **/
+/**
+ *Nullish coalescing
+ * handy shorthand that will provide a
+ * default value if a variable is either null or undefined
+ *
+ * */
+declare function nullishCheck(a: number | undefined | null): void;
