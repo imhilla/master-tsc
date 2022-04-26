@@ -174,3 +174,19 @@ const enum DoorStateConst {
   closed = 20,
 }
 console.log(`Const closed = ${DoorStateConst.closed}`);
+
+/**
+ * More primitives types
+ * **/
+// udefined
+let array = ["123", "456", "789"];
+delete array[0];
+for (let i = 0; i < array.length; i++) {
+  // console.log(`array[${i}] = ${array[i]}`);
+  CheckAndPrintElement(array[i]);
+}
+function CheckAndPrintElement(arrElement: string | undefined) {
+  if (arrElement === undefined) {
+    console.log(`invalid array element`);
+  } else console.log(`valid array elemrnt ${arrElement}`);
+}

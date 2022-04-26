@@ -93,3 +93,8 @@ declare const enum DoorStateConst {
     open = 10,
     closed = 20
 }
+/**
+ * More primitives types
+ * **/
+declare let array: string[];
+declare function CheckAndPrintElement(arrElement: string | undefined): void;

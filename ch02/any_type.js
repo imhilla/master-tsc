@@ -143,4 +143,21 @@ var DoorStateString;
 })(DoorStateString || (DoorStateString = {}));
 console.log(`OPEN = ${DoorStateString.OPEN}`);
 console.log(`Const closed = ${20 /* closed */}`);
+/**
+ * More primitives types
+ * **/
+// udefined
+let array = ["123", "456", "789"];
+delete array[0];
+for (let i = 0; i < array.length; i++) {
+    // console.log(`array[${i}] = ${array[i]}`);
+    CheckAndPrintElement(array[i]);
+}
+function CheckAndPrintElement(arrElement) {
+    if (arrElement === undefined) {
+        console.log(`invalid array element`);
+    }
+    else
+        console.log(`valid array elemrnt ${arrElement}`);
+}
 //# sourceMappingURL=any_type.js.map
