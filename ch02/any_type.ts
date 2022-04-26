@@ -226,3 +226,12 @@ function nullishCheck(a: number | undefined | null) {
 nullishCheck(1);
 nullishCheck(null);
 nullishCheck(undefined);
+
+/**
+ * double question mark ?? is the nullish coalescing operator
+ * this syntax provides an alaternative value which is provided on the right hand side of the operator
+ * **/
+
+function testNullOperands(a: number, b: number | null | undefined) {
+  let addResults = a + (b ?? 0);
+}

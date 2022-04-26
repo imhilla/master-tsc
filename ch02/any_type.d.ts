@@ -120,3 +120,8 @@ declare function printValues(a: number | null): void;
  *
  * */
 declare function nullishCheck(a: number | undefined | null): void;
+/**
+ * double question mark ?? is the nullish coalescing operator
+ * this syntax provides an alaternative value which is provided on the right hand side of the operator
+ * **/
+declare function testNullOperands(a: number, b: number | null | undefined): void;

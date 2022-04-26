@@ -27,8 +27,8 @@ var item3 = { id: 1, name: "item3" };
 item3 = { id: 2 };
 let index = 0;
 if (index == 0) {
-    let index = 2;
-    console.log(`index = ${index}`);
+  let index = 2;
+  console.log(`index = ${index}`);
 }
 /**
  * const values
@@ -40,7 +40,7 @@ const constValue = "This should not be changed";
  *Typescript allows us to express a type as a combination of two or more types
  */
 function printObject(obj) {
-    console.log(`obj = ${obj}`);
+  console.log(`obj = ${obj}`);
 }
 printObject(1);
 printObject("String value");
@@ -52,24 +52,24 @@ printObject("String value");
  that type within scope
  * */
 function addWithUnion(arg1, arg2) {
-    if (typeof arg1 === "string") {
-        // arg1 is treated ad a string
-        console.log(`arg1 is of type string`);
-        return arg1 + arg2;
-    }
-    if (typeof arg1 === "number" && typeof arg2 === "number") {
-        // both are numbers
-        console.log(`arg1 and arg2 are both numbers`);
-        return arg1 + arg2;
-    }
-    console.log(`default return treat both as a string`);
-    return arg1.toString() + arg2.toString();
+  if (typeof arg1 === "string") {
+    // arg1 is treated ad a string
+    console.log(`arg1 is of type string`);
+    return arg1 + arg2;
+  }
+  if (typeof arg1 === "number" && typeof arg2 === "number") {
+    // both are numbers
+    console.log(`arg1 and arg2 are both numbers`);
+    return arg1 + arg2;
+  }
+  console.log(`default return treat both as a string`);
+  return arg1.toString() + arg2.toString();
 }
 console.log(` "1", "2" = ${addWithUnion("1", "2")}`);
 console.log(`  1 ,  2  = ${addWithUnion(1, 2)}`);
 console.log(`  1 , "2" = ${addWithUnion(1, "2")}`);
 function addWithTypeAlias(arg1, arg2) {
-    return arg1.toString() + arg2.toString();
+  return arg1.toString() + arg2.toString();
 }
 /**
  * Enums
@@ -77,19 +77,19 @@ function addWithTypeAlias(arg1, arg2) {
  **/
 var DoorState;
 (function (DoorState) {
-    DoorState[DoorState["Open"] = 0] = "Open";
-    DoorState[DoorState["Closed"] = 1] = "Closed";
+  DoorState[(DoorState["Open"] = 0)] = "Open";
+  DoorState[(DoorState["Closed"] = 1)] = "Closed";
 })(DoorState || (DoorState = {}));
 function checkDoorState(state) {
-    console.log(`enum value is :${state}`);
-    switch (state) {
-        case DoorState.Open:
-            console.log(`Door is Open`);
-            break;
-        case DoorState.Closed:
-            console.log(`Door is closed`);
-            break;
-    }
+  console.log(`enum value is :${state}`);
+  switch (state) {
+    case DoorState.Open:
+      console.log(`Door is Open`);
+      break;
+    case DoorState.Closed:
+      console.log(`Door is closed`);
+      break;
+  }
 }
 /**
  * The correct way to call this function is by using on of the values that DoorState enum provides
@@ -103,29 +103,31 @@ checkDoorState(DoorState.Closed);
  * **/
 var DoorStateSpecificValues;
 (function (DoorStateSpecificValues) {
-    DoorStateSpecificValues[DoorStateSpecificValues["Open"] = 3] = "Open";
-    DoorStateSpecificValues[DoorStateSpecificValues["Closed"] = 7] = "Closed";
-    DoorStateSpecificValues[DoorStateSpecificValues["Unspecified"] = 256] = "Unspecified";
+  DoorStateSpecificValues[(DoorStateSpecificValues["Open"] = 3)] = "Open";
+  DoorStateSpecificValues[(DoorStateSpecificValues["Closed"] = 7)] = "Closed";
+  DoorStateSpecificValues[(DoorStateSpecificValues["Unspecified"] = 256)] =
+    "Unspecified";
 })(DoorStateSpecificValues || (DoorStateSpecificValues = {}));
 var StaffDepartments;
 (function (StaffDepartments) {
-    StaffDepartments[StaffDepartments["HR"] = 0] = "HR";
-    StaffDepartments[StaffDepartments["Finance"] = 1] = "Finance";
-    StaffDepartments[StaffDepartments["Tech"] = 2] = "Tech";
-    StaffDepartments[StaffDepartments["CustomerExperience"] = 3] = "CustomerExperience";
+  StaffDepartments[(StaffDepartments["HR"] = 0)] = "HR";
+  StaffDepartments[(StaffDepartments["Finance"] = 1)] = "Finance";
+  StaffDepartments[(StaffDepartments["Tech"] = 2)] = "Tech";
+  StaffDepartments[(StaffDepartments["CustomerExperience"] = 3)] =
+    "CustomerExperience";
 })(StaffDepartments || (StaffDepartments = {}));
 function LogDepartments(department) {
-    console.log(department);
-    switch (department) {
-        case StaffDepartments.HR:
-            console.log("Department is " + "hr");
-            break;
-        case StaffDepartments.CustomerExperience:
-            console.log("Department is " + "customer experince");
-            break;
-        case StaffDepartments.Tech:
-            console.log("Department is tech" + " team");
-    }
+  console.log(department);
+  switch (department) {
+    case StaffDepartments.HR:
+      console.log("Department is " + "hr");
+      break;
+    case StaffDepartments.CustomerExperience:
+      console.log("Department is " + "customer experince");
+      break;
+    case StaffDepartments.Tech:
+      console.log("Department is tech" + " team");
+  }
 }
 LogDepartments(StaffDepartments.HR);
 LogDepartments(StaffDepartments.CustomerExperience);
@@ -138,8 +140,8 @@ LogDepartments(StaffDepartments.Tech);
  * **/
 var DoorStateString;
 (function (DoorStateString) {
-    DoorStateString["OPEN"] = "Open";
-    DoorStateString["CLOSED"] = "Closed";
+  DoorStateString["OPEN"] = "Open";
+  DoorStateString["CLOSED"] = "Closed";
 })(DoorStateString || (DoorStateString = {}));
 console.log(`OPEN = ${DoorStateString.OPEN}`);
 console.log(`Const closed = ${20 /* closed */}`);
@@ -150,15 +152,13 @@ console.log(`Const closed = ${20 /* closed */}`);
 let array = ["123", "456", "789"];
 delete array[0];
 for (let i = 0; i < array.length; i++) {
-    // console.log(`array[${i}] = ${array[i]}`);
-    CheckAndPrintElement(array[i]);
+  // console.log(`array[${i}] = ${array[i]}`);
+  CheckAndPrintElement(array[i]);
 }
 function CheckAndPrintElement(arrElement) {
-    if (arrElement === undefined) {
-        console.log(`invalid array element`);
-    }
-    else
-        console.log(`valid array elemrnt ${arrElement}`);
+  if (arrElement === undefined) {
+    console.log(`invalid array element`);
+  } else console.log(`valid array elemrnt ${arrElement}`);
 }
 /**
  *  null
@@ -166,7 +166,7 @@ function CheckAndPrintElement(arrElement) {
  * as opposed to undefined
  * **/
 function printValues(a) {
-    console.log(`a = ${a}`);
+  console.log(`a = ${a}`);
 }
 printValues(1);
 printValues(null);
@@ -186,9 +186,16 @@ printValues(null);
  *
  * */
 function nullishCheck(a) {
-    console.log(`a: ${a !== null && a !== void 0 ? a : `undefined or null`}`);
+  console.log(`a: ${a !== null && a !== void 0 ? a : `undefined or null`}`);
 }
 nullishCheck(1);
 nullishCheck(null);
 nullishCheck(undefined);
+/**
+ * double question mark ?? is the nullish coalescing operator
+ * this syntax provides an alaternative value which is provided on the right hand side of the operator
+ * **/
+function testNullOperands(a, b) {
+  let addResults = a + (b !== null && b !== void 0 ? b : 0);
+}
 //# sourceMappingURL=any_type.js.map
