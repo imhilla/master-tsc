@@ -91,6 +91,10 @@ function checkDoorState(state) {
             break;
     }
 }
+/**
+ * The correct way to call this function is by using on of the values that DoorState enum provides
+ *
+ * **/
 checkDoorState(DoorState.Open);
 checkDoorState(DoorState.Closed);
 /**
@@ -103,4 +107,40 @@ var DoorStateSpecificValues;
     DoorStateSpecificValues[DoorStateSpecificValues["Closed"] = 7] = "Closed";
     DoorStateSpecificValues[DoorStateSpecificValues["Unspecified"] = 256] = "Unspecified";
 })(DoorStateSpecificValues || (DoorStateSpecificValues = {}));
+var StaffDepartments;
+(function (StaffDepartments) {
+    StaffDepartments[StaffDepartments["HR"] = 0] = "HR";
+    StaffDepartments[StaffDepartments["Finance"] = 1] = "Finance";
+    StaffDepartments[StaffDepartments["Tech"] = 2] = "Tech";
+    StaffDepartments[StaffDepartments["CustomerExperience"] = 3] = "CustomerExperience";
+})(StaffDepartments || (StaffDepartments = {}));
+function LogDepartments(department) {
+    console.log(department);
+    switch (department) {
+        case StaffDepartments.HR:
+            console.log("Department is " + "hr");
+            break;
+        case StaffDepartments.CustomerExperience:
+            console.log("Department is " + "customer experince");
+            break;
+        case StaffDepartments.Tech:
+            console.log("Department is tech" + " team");
+    }
+}
+LogDepartments(StaffDepartments.HR);
+LogDepartments(StaffDepartments.CustomerExperience);
+LogDepartments(StaffDepartments.Tech);
+/**
+ * using enums help us to provide a clear set of values for a variable or function parameter
+ * **/
+/**
+ * string enums
+ * **/
+var DoorStateString;
+(function (DoorStateString) {
+    DoorStateString["OPEN"] = "Open";
+    DoorStateString["CLOSED"] = "Closed";
+})(DoorStateString || (DoorStateString = {}));
+console.log(`OPEN = ${DoorStateString.OPEN}`);
+console.log(`Const closed = ${20 /* closed */}`);
 //# sourceMappingURL=any_type.js.map

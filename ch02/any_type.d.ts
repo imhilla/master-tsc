@@ -68,3 +68,28 @@ declare enum DoorStateSpecificValues {
     Closed = 7,
     Unspecified = 256
 }
+declare enum StaffDepartments {
+    HR = 0,
+    Finance = 1,
+    Tech = 2,
+    CustomerExperience = 3
+}
+declare function LogDepartments(department: StaffDepartments): void;
+/**
+ * using enums help us to provide a clear set of values for a variable or function parameter
+ * **/
+/**
+ * string enums
+ * **/
+declare enum DoorStateString {
+    OPEN = "Open",
+    CLOSED = "Closed"
+}
+/**
+ * The final variant of the enum familty is the
+ *  constant enum
+ * **/
+declare const enum DoorStateConst {
+    open = 10,
+    closed = 20
+}

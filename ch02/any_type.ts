@@ -97,6 +97,7 @@ enum DoorState {
   Open,
   Closed,
 }
+
 function checkDoorState(state: DoorState) {
   console.log(`enum value is :${state}`);
   switch (state) {
@@ -108,6 +109,10 @@ function checkDoorState(state: DoorState) {
       break;
   }
 }
+/**
+ * The correct way to call this function is by using on of the values that DoorState enum provides
+ *
+ * **/
 checkDoorState(DoorState.Open);
 checkDoorState(DoorState.Closed);
 
@@ -120,3 +125,52 @@ enum DoorStateSpecificValues {
   Closed = 7,
   Unspecified = 256,
 }
+
+enum StaffDepartments {
+  HR,
+  Finance,
+  Tech,
+  CustomerExperience,
+}
+
+function LogDepartments(department: StaffDepartments) {
+  console.log(department);
+  switch (department) {
+    case StaffDepartments.HR:
+      console.log("Department is " + "hr");
+      break;
+    case StaffDepartments.CustomerExperience:
+      console.log("Department is " + "customer experince");
+      break;
+    case StaffDepartments.Tech:
+      console.log("Department is tech" + " team");
+  }
+}
+LogDepartments(StaffDepartments.HR);
+LogDepartments(StaffDepartments.CustomerExperience);
+LogDepartments(StaffDepartments.Tech);
+/**
+ * using enums help us to provide a clear set of values for a variable or function parameter
+ * **/
+
+/**
+ * string enums
+ * **/
+
+enum DoorStateString {
+  OPEN = "Open",
+  CLOSED = "Closed",
+}
+
+console.log(`OPEN = ${DoorStateString.OPEN}`);
+
+/**
+ * The final variant of the enum familty is the
+ *  constant enum
+ * **/
+
+const enum DoorStateConst {
+  open = 10,
+  closed = 20,
+}
+console.log(`Const closed = ${DoorStateConst.closed}`);
