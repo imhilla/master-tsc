@@ -50,3 +50,21 @@ function printNameOrValue(obj: IIdName | IDescrValue): void {
 }
 printNameOrValue({ id: 1, name: "nameValue" });
 printNameOrValue({ descr: "description", value: 2 });
+
+//keyof
+interface Iperson {
+  id: number;
+  name: string;
+}
+
+type PersonPropertyName = keyof Iperson;
+//equivalent to string literal
+type PersonPropertyLiteral = "id" | "name";
+
+function getProperty(key: PersonPropertyName, value: Iperson) {
+  console.log(`${key} = ${value[key]}`);
+}
+getProperty("id", { id: 1, name: "first name" });
+getProperty("name", { id: 2, name: "seconn" });
+
+// classes
