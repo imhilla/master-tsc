@@ -160,3 +160,59 @@ class DerivedClassWithCtor extends BaseConstructor {
     this.name = name;
   }
 }
+// function overriding
+class BaseClassWithFn {
+  print(text: string) {
+    console.log("Base class fn with print");
+  }
+}
+
+class DerivedClassFnOverride extends BaseClassWithFn {
+  print(text: string): void {
+    console.log(text);
+  }
+}
+
+let derivedClassOverride = new DerivedClassFnOverride();
+derivedClassOverride.print("test word");
+
+// generics
+/*
+ * a way of writing code that will work with a wide range of objects and primitives
+ *
+ * using generics can force each element of the array to be of the same type
+ * and there fore would not allow a mixed list of values to be sent through our function
+ */
+
+/*
+ *
+ *Generic syntax
+ typescript uses angle bracket <> and a type symbol to indicate that we are using generic
+ */
+function printGeneric<T>(value: T) {
+  console.log(`typeof T is : ${typeof value}`);
+  console.log(`value is : ${value}`);
+}
+/**
+ * we have replaced the type within function definition  which
+ * would normally be value string or number with the generic syntax value T
+ *
+ *
+ * */
+printGeneric(1);
+printGeneric("test");
+printGeneric(true);
+printGeneric(() => {});
+printGeneric({ id: 1 });
+
+/**
+ * Here we are using type casting notation that is angle brackets <type>
+ * to explicitly set the type using this long form notation
+ * **/
+printGeneric<string>("test");
+
+/**
+ * Multiple generic types
+ * we can also specify more than one type to be used in a generic function
+ * */
+function usingTwoTypes<A, B>(first: A, second: B) {}
