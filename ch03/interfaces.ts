@@ -145,3 +145,18 @@ class MultipleInterfaces implements IFirstInterface, ISecondInterface {
   id: number = 0;
   name: string = "name string";
 }
+
+class BaseConstructor {
+  private id: number;
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+
+class DerivedClassWithCtor extends BaseConstructor {
+  private name: string;
+  constructor(id: number, name: string) {
+    super(id);
+    this.name = name;
+  }
+}
