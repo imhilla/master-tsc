@@ -216,3 +216,14 @@ printGeneric<string>("test");
  * we can also specify more than one type to be used in a generic function
  * */
 function usingTwoTypes<A, B>(first: A, second: B) {}
+// this function can specify any type of either A or B for example
+usingTwoTypes<number, string>(1, "test");
+usingTwoTypes(1, "test");
+usingTwoTypes<boolean, boolean>(true, false);
+usingTwoTypes("first", "second");
+// here we are freely mixing the syntax to call the usingTwoTypes function.
+
+/**
+ * constrainign the type of T
+ *
+ * **/
