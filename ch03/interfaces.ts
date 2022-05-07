@@ -456,3 +456,30 @@ function getTupleStringAbc<T>(tupleValue: abc_ab_a<T>): string {
 let keyA = getTupleStringAbc<IA>([1]);
 let keyB = getTupleStringAbc<IAb>([1, "test"]);
 let keyC = getTupleStringAbc<IAbc>([1, "test", true]);
+/**
+ * Distributed conditional types
+ * when defining conditional types instead of returning only a single type as part of our
+ * conditional statements, we can also return a number of types or distributed conditional types
+ *
+ **/
+type dateOrNumberOrString<T> = T extends Date
+  ? Date
+  : T extends number
+  ? Date | number
+  : T extends string
+  ? Date | number | string
+  : never;
+function compareValues<T extends string | number | Date | boolean>(
+  input: T,
+  compareTo: dateOrNumberOrString<T>
+) {
+  // do comparison
+}
+
+/**
+ *  conditional type inference
+ **/
+type inferFromPropertyType<T> = T extends { id: infer U } ? U : never;
+function testInferFromPropertyType<T>(arg: inferFromPropertyType<T>) {}
+testInferFromPropertyType<{ id: string }>("test");
+testInferFromPropertyType<{ id: number }>(1);
