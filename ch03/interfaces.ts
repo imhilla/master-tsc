@@ -328,4 +328,68 @@ let createAInstance = createClassInstance(ClassAA);
 
 /**
  * Advanced type interfaces
+ * conditional types
+ * inferred types
+ * mapped types
  * **/
+
+/**
+ * mapped types
+ * **/
+interface IAbRequired {
+  a: number;
+  b: string;
+}
+
+let ab: IAbRequired = {
+  a: 1,
+  b: "test",
+};
+
+type WeakInterface<T> = {
+  [K in keyof T]?: T[K];
+};
+
+let allOptional: WeakInterface<IAbRequired> = {};
+/**
+ *  partials read-only record and pick
+ *
+ * **/
+/**
+ * make all properties in T optional
+ *
+ *  **/
+type PartialE<T> = {
+  [P in keyof T]?: T[P];
+};
+
+/**
+ * make all properties in T readonly
+ * **/
+type ReadOnly<T> = {
+  readonly [P in keyof T]: T[P];
+};
+
+let readOnly: ReadOnly<IAbRequired> = {
+  a: 0,
+  b: "",
+};
+
+// readOnly.a = 2;
+
+/**
+ * Pick
+ * pick mapped types is used to construct a type based on a subset of
+ * properties of another type
+ * **/
+interface IAbc {
+  a: number;
+  b: string;
+  c: boolean;
+}
+
+type PickAb = Pick<IAbc, "a" | "b">;
+let pickAbObj: PickAb = {
+  a: 1,
+  b: "test",
+};
