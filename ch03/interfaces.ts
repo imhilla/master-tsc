@@ -159,8 +159,8 @@ class DerivedClassWithCtor extends BaseConstructor {
     super(id);
     this.name = name;
   }
+  // function overriding
 }
-// function overriding
 class BaseClassWithFn {
   print(text: string) {
     console.log("Base class fn with print");
@@ -283,18 +283,32 @@ let object1 = {
 printProperty(object1, "id");
 printProperty(object1, "name");
 // printProperty(object1, "surname");
-/***
- *
- *
+
+/**
  * Generic interfaces
  * in the same way that fucntions and classes can use generics, we are able to create
  * interfaces that use generic syntax
- */
+ **/
 
 interface IPrint {
   print(): void;
 }
 
 interface ILogInterface<T extends IPrint> {
-  
+  logToConsole(iPrintObj: T): void;
 }
+
+class LogClass<T extends IPrint> implements ILogInterface<T> {
+  logToConsole(iPrintObj: T): void {
+    iPrintObj.print();
+  }
+}
+
+let printObject: IPrint = {
+  print() {
+    console.log(`printObject.print() called`);
+  },
+};
+
+let logClass = new LogClass();
+logClass.logToConsole(printObject);
