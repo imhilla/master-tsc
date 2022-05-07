@@ -483,3 +483,15 @@ type inferFromPropertyType<T> = T extends { id: infer U } ? U : never;
 function testInferFromPropertyType<T>(arg: inferFromPropertyType<T>) {}
 testInferFromPropertyType<{ id: string }>("test");
 testInferFromPropertyType<{ id: number }>(1);
+
+/**
+ * type inferences from function signatures
+ * in the same way that we can define inferred types based on object properties
+ * we can also infer types based on function signatures.
+ * these inferred types can be inferred from either the function arguments or from the
+ * return type
+ * **/
+type inferredFromFnParam<T> = T extends (a: infer U) => void ? U : never;
+function testInferredFromParam<T>(arg: inferredFromFnParam<T>) {}
+testInferredFromParam<(a: number) => void>(1);
+testInferredFromParam<(a: string) => void>("test");
