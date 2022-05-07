@@ -393,3 +393,15 @@ let pickAbObj: PickAb = {
   a: 1,
   b: "test",
 };
+
+/**
+ * Record
+ * used to construct a type on the fly.
+ * almost the opposite of the Pick mapped type and uses a provoded list of properties
+ * as a string literal to define what properties the type must have
+ * **/
+type RecordedCd = Record<"c" | "d", number>;
+let recordedCdVar: RecordedCd = {
+  c: 1,
+  d: 3,
+};
