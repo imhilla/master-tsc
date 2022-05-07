@@ -225,5 +225,76 @@ usingTwoTypes("first", "second");
 
 /**
  * constrainign the type of T
+ * in most instances we will want to limit the type of T in order to
+ * only allow a specific set of types to be used within our generic code
+ * **/
+
+class Concatenator<T extends Array<string> | Array<number>> {
+  public concatenateArray(items: T): string {
+    let returnString = "";
+    for (let i = 0; i < items.length; i++) {
+      returnString += i > 0 ? "," : "";
+      returnString += items[i].toString();
+    }
+    return returnString;
+  }
+}
+
+let concator = new Concatenator();
+let concatResult = concator.concatenateArray(["first", "second", "third"]);
+concatResult = concator.concatenateArray([1000, 2000, 3000]);
+console.log("concatResultc", concatResult);
+
+interface IPrintId {
+  id: number;
+  print(): void;
+}
+interface IPrintName {
+  name: string;
+  print(): void;
+}
+
+function useT<T extends IPrintId | IPrintName>(item: T): void {
+  item.print();
+  // item.id = 1; // error : id is not common
+  // item.name = "test"; // error : name is not common
+}
+
+/**
+ *
+ * Generic constraints
+ * a generic type can be constructed out of another generic type
+ * this technique essentially uses one type to apply a contraint on another type
  *
  * **/
+
+function printProperty<T, K extends keyof T>(object: T, key: K) {
+  let propertyValue = object[key];
+  console.log(`object[${key}] = ${propertyValue}`);
+}
+
+let object1 = {
+  id: 1,
+  name: "my name",
+  print() {
+    console.log(`${this.id}`);
+  },
+};
+printProperty(object1, "id");
+printProperty(object1, "name");
+// printProperty(object1, "surname");
+/***
+ *
+ *
+ * Generic interfaces
+ * in the same way that fucntions and classes can use generics, we are able to create
+ * interfaces that use generic syntax
+ */
+
+interface IPrint {
+  print(): void;
+}
+
+interface ILogInterface<T extends IPrint> {
+  
+}
