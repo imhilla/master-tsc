@@ -312,3 +312,20 @@ let printObject: IPrint = {
 
 let logClass = new LogClass();
 logClass.logToConsole(printObject);
+
+/**
+ * creating new objects with generics
+ *
+ * **/
+class ClassAA {}
+class ClassBB {}
+
+function createClassInstance<T>(arg1: { new (): T }): T {
+  return new arg1();
+}
+
+let createAInstance = createClassInstance(ClassAA);
+
+/**
+ * Advanced type interfaces
+ * **/
